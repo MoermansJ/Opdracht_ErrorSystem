@@ -14,34 +14,20 @@ public class Main {
         // Met de methode getError(), krijg je een error,
         // Met de methode fixError(String error, level), kan je de behandelde error opslaan.
         //---------------------------------------------------
-
-
         Scanner scanner = new Scanner(System.in);
 
-        while (getError() != null){
+        while (getError() != null) {
             String currentError = getError();
-        System.out.println("CURRENT ERROR: " + currentError);
-        System.out.print("Enter current error level: (LOW/MEDIUM/HIGH/NO_ERROR) ");
-        String userInput = scanner.nextLine();
+            System.out.println("CURRENT ERROR: " + currentError);
+            System.out.print("Enter current error level: (LOW/MEDIUM/HIGH/NO_ERROR) ");
+            String userInput = scanner.nextLine();
 
-        PriorityLevel currentPL = PriorityLevel.NO_ERROR;
+            PriorityLevel currentPL = PriorityLevel.valueOf(userInput);
 
-        switch (userInput) {
-            case "LOW":
-                currentPL = PriorityLevel.LOW;
-                break;
-            case "MEDIUM":
-                currentPL = PriorityLevel.MEDIUM;
-                break;
-            case "HIGH":
-                currentPL = PriorityLevel.HIGH;
-                break;
+            if (currentPL != PriorityLevel.NO_ERROR) {
+                fixError((currentPL.valueOf(userInput).name()) + " - " + currentError, currentPL);
+            }
         }
-
-        if (currentPL != PriorityLevel.NO_ERROR) {
-            fixError((currentPL.name()) + " - " + currentError, currentPL);
-        }
-    }
 
 
         //---------------------------------------------------
@@ -60,7 +46,7 @@ public class Main {
         ErrorSystem.handledError(error, level);
     }
 
-    private static void printOverview(){
+    private static void printOverview() {
         System.out.println("---------------------------\n");
         System.out.println("       HANDLED ERROR       \n");
         System.out.println("---------------------------\n");
