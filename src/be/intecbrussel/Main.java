@@ -16,6 +16,7 @@ public class Main {
         //---------------------------------------------------
         Scanner scanner = new Scanner(System.in);
 
+        
         while (true) {
             String currentError = getError();
 
@@ -30,7 +31,7 @@ public class Main {
             PriorityLevel currentPL = PriorityLevel.valueOf(userInput);
 
             if (currentPL != PriorityLevel.NO_ERROR) {
-                fixError((currentPL.valueOf(userInput).name()) + " - " + currentError, currentPL);
+                fixError(currentPL.name() + " - " + currentError, currentPL);
             }
         }
 
