@@ -18,6 +18,11 @@ public class Main {
 
         while (getError() != null) {
             String currentError = getError();
+
+            if (currentError == null) {
+                break;
+            }
+
             System.out.println("CURRENT ERROR: " + currentError);
             System.out.print("Enter current error level: (LOW/MEDIUM/HIGH/NO_ERROR) ");
             String userInput = scanner.nextLine();
