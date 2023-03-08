@@ -16,7 +16,7 @@ public class Main {
         //---------------------------------------------------
         Scanner scanner = new Scanner(System.in);
 
-        while (getError() != null) {
+        while (true) {
             String currentError = getError();
 
             if (currentError == null) {
